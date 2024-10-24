@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'b2.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,11 +20,11 @@ class FacebookHomeScreen extends StatefulWidget {
 }
 
 class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
-  int _selectedIndex = 0; // Theo dõi chỉ số đã chọn
+  int _selectedIndex = 0;
 
   void _onItemTapped(int index) {
     setState(() {
-      _selectedIndex = index; // Cập nhật chỉ số đã chọn
+      _selectedIndex = index;
     });
   }
 
@@ -48,7 +49,13 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
           ),
           IconButton(
             icon: Icon(Icons.message, color: Colors.black),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => DigitalClock()),
+              );
+            },
+
           ),
         ],
       ),
@@ -56,7 +63,7 @@ class _FacebookHomeScreenState extends State<FacebookHomeScreen> {
         children: [
           _buildPostInputSection(),
           _buildStoriesSection(),
-          _buildSamplePost(), // Thêm bài viết mẫu ở đây
+          _buildSamplePost(),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
